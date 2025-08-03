@@ -13,7 +13,7 @@ import {
   FiPhone,
   FiShare2,
   FiMessageCircle,
-  FiArrowRight,
+  FiChevronRight,
 } from "react-icons/fi";
 
 const CommunicationsSection = () => {
@@ -136,7 +136,7 @@ const CommunicationsSection = () => {
                     _hover={{ color: "#5D5BD4", bg: "transparent" }}
                     leftIcon={
                       <Box p={2} borderRadius="md" bg="#5D5BD4" color="white">
-                        <FiArrowRight size={16} />
+                        <FiChevronRight size={16} />
                       </Box>
                     }
                   >
