@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { X, ChevronDown } from "lucide-react";
 import microsoftLogo from "../images/microsoft logo.png";
+import { useNavigate } from "react-router-dom";
 
 const TeamsHero = () => {
   const [showBanner, setShowBanner] = useState(true);
+  const navigate = useNavigate();
+  const handleDownloadClick = () => navigate("/download");
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -110,6 +113,7 @@ const TeamsHero = () => {
                 onMouseLeave={(e) =>
                   (e.target.style.backgroundColor = "#5D5BD4")
                 }
+                onClick={handleDownloadClick}
               >
                 Download now
               </button>
