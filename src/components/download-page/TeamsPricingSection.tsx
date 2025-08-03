@@ -8,10 +8,8 @@ import {
   SimpleGrid,
   VStack,
   HStack,
-  Badge,
   List,
   ListItem,
-  Flex,
 } from "@chakra-ui/react";
 import {
   FiUsers,
