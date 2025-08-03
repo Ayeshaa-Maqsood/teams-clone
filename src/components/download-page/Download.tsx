@@ -3,6 +3,7 @@ import DownloadHero from "./DownloadHero";
 import CommunicationsSection from "./CommunicationsSection";
 import TeamsMobileAppSection from "./TeamsMobileAppSection";
 import MicrosoftTeamsFooter from "../MicrosoftTeamsFooter";
+import TeamsPricingSection from "./TeamsPricingSection";
 // import Footer from '../Footer';
 
 const Download: React.FC = () => {
@@ -11,6 +12,7 @@ const Download: React.FC = () => {
       <DownloadHero />
       <CommunicationsSection />
       <TeamsMobileAppSection />
+      <TeamsPricingSection />
       <MicrosoftTeamsFooter />
     </div>
   );
