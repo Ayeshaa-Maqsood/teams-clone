@@ -63,11 +63,16 @@ const SolutionsSection = () => {
   };
 
   return (
-    <Box bg="gray.50" py={20} minH="80vh" id="solutions-section">
+    <Box
+      bg="gray.50"
+      py={{ base: 12, md: 16, lg: 20 }}
+      minH="80vh"
+      id="solutions-section"
+    >
       {/* Add horizontal padding/margin for spacing on sides */}
       <Container maxW="7xl" px={{ base: 6, md: 8, lg: 12 }}>
         {/* Header */}
-        <VStack align="start" gap={4} mb={16}>
+        <VStack align="start" gap={4} mb={{ base: 8, md: 12, lg: 16 }}>
           <Text
             fontSize="sm"
             fontWeight="600"
@@ -79,7 +84,7 @@ const SolutionsSection = () => {
           </Text>
           <Heading
             as="h2"
-            size="2xl"
+            size={{ base: "xl", md: "2xl" }}
             color="gray.900"
             fontWeight="700"
             maxW="4xl"
@@ -92,7 +97,7 @@ const SolutionsSection = () => {
         {/* Main Content */}
         <Flex
           direction={{ base: "column", lg: "row" }}
-          gap={16}
+          gap={{ base: 8, md: 12, lg: 16 }}
           align="flex-start"
         >
           {/* Left Panel - Custom Accordion */}
@@ -100,11 +105,12 @@ const SolutionsSection = () => {
             flex="1"
             maxW={{ base: "full", lg: "500px" }}
             position="relative"
+            w="full"
           >
             {/* Moving purple indicator line - covers entire active section content */}
             {activeSection && (
               <Box
-                w="4px"
+                w={{ base: "2px", md: "4px" }}
                 position="absolute"
                 left="0"
                 borderRadius="full"
@@ -113,14 +119,14 @@ const SolutionsSection = () => {
                   top: `${
                     solutions.findIndex((s) => s.id === activeSection) * 88
                   }px`,
-                  height: `${88 + (activeSection ? 120 : 0)}px`, // Base height + expanded content height
+                  height: `${88 + (activeSection ? 120 : 0)}px`,
                   transition: "all 0.4s ease-in-out",
                 }}
                 zIndex={2}
               />
             )}
 
-            <Box pl={8} position="relative">
+            <Box pl={{ base: 4, md: 6, lg: 8 }} position="relative">
               {solutions.map((solution, index) => (
                 <Box key={solution.id} position="relative">
                   {/* Accordion Header */}
@@ -130,16 +136,17 @@ const SolutionsSection = () => {
                     align="center"
                     justify="space-between"
                     w="full"
-                    py={6}
+                    py={{ base: 4, md: 6 }}
+                    px={{ base: 2, md: 0 }}
                     textAlign="left"
                     _hover={{ bg: "transparent" }}
                     _focus={{ outline: "none" }}
                     position="relative"
-                    minH="76px" // Consistent height for smooth animation
+                    minH={{ base: "60px", md: "76px" }}
                   >
                     <HStack gap={3}>
                       <Heading
-                        size="lg"
+                        size={{ base: "md", md: "lg" }}
                         fontWeight="600"
                         color={
                           activeSection === solution.id ? "#5D5BD4" : "gray.900"
@@ -177,7 +184,7 @@ const SolutionsSection = () => {
                     maxH={activeSection === solution.id ? "200px" : "0"}
                     opacity={activeSection === solution.id ? 1 : 0}
                   >
-                    <Box pb={6} pr={8}>
+                    <Box pb={{ base: 4, md: 6 }} pr={{ base: 4, md: 8 }}>
                       <VStack align="start" gap={4}>
                         <Text
                           color="gray.700"
@@ -213,19 +220,20 @@ const SolutionsSection = () => {
           {/* Right Panel - Dynamic Images with Animation */}
           <Box
             flex="1"
-            minH="500px"
+            minH={{ base: "300px", md: "400px", lg: "500px" }}
             display="flex"
             alignItems="center"
             justifyContent="center"
             position="relative"
             overflow="hidden"
             className="animate-slideInRight w-full h-full"
+            order={{ base: -1, lg: 0 }}
           >
             {/* Dynamic Image Display with slide animation */}
             <Box
               w="full"
-              h="500px"
-              borderRadius="xl"
+              h={{ base: "300px", md: "400px", lg: "500px" }}
+              borderRadius={{ base: "lg", md: "xl" }}
               overflow="hidden"
               position="relative"
             >

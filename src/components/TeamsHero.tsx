@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { X, ChevronDown } from "lucide-react";
+import { X, ChevronDown, Menu } from "lucide-react";
 import microsoftLogo from "../images/microsoft logo.png";
 import { useNavigate } from "react-router-dom";
 
 const TeamsHero = () => {
   const [showBanner, setShowBanner] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const handleDownloadClick = () => navigate("/download");
 
@@ -24,6 +25,7 @@ const TeamsHero = () => {
               </div>
 
               {/* Navigation */}
+              {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-1">
                   <span className="text-gray-700 font-bold text-lg">Teams</span>
@@ -47,10 +49,18 @@ const TeamsHero = () => {
                 </div>
                 <span className="text-gray-600">Support</span>
               </nav>
+
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden p-2"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <Menu size={24} className="text-gray-700" />
+              </button>
             </div>
 
             {/* Right side - Buttons */}
-            <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
               <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
                 Download Teams
               </button>
@@ -61,6 +71,31 @@ const TeamsHero = () => {
           </div>
         </div>
       </header>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-b shadow-lg">
+          <div className="px-4 py-2 space-y-1">
+            <div className="py-2 text-gray-700 font-bold text-lg border-b">
+              Teams
+            </div>
+            <div className="py-2 text-gray-600">Products</div>
+            <div className="py-2 text-gray-600">Features</div>
+            <div className="py-2 text-gray-600">Pricing</div>
+            <div className="py-2 text-gray-600">Solutions</div>
+            <div className="py-2 text-gray-600">Resources</div>
+            <div className="py-2 text-gray-600">Support</div>
+            <div className="pt-4 pb-2 space-y-2 border-t">
+              <button className="w-full px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                Download Teams
+              </button>
+              <button className="w-full px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                Sign in
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Announcement Banner */}
       {showBanner && (
@@ -89,9 +124,9 @@ const TeamsHero = () => {
 
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] py-12">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 order-2 lg:order-1">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Get ready for the future of work with Microsoft Teams
@@ -121,9 +156,9 @@ const TeamsHero = () => {
           </div>
 
           {/* Right Content - Teams Interface Mockup */}
-          <div className="relative">
+          <div className="relative order-1 lg:order-2 w-full max-w-xs sm:max-w-sm lg:max-w-none mx-auto">
             {/* Main Teams Interface Container */}
-            <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-300">
+            <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-300 scale-50 sm:scale-60 lg:scale-100">
               {/* Teams Meeting Grid */}
               <div className="p-4 bg-gray-900">
                 <div className="grid grid-cols-3 gap-2 mb-4">
@@ -184,16 +219,16 @@ const TeamsHero = () => {
             </div>
 
             {/* Floating Emojis */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-xl animate-bounce">
+            <div className="absolute -top-2 -left-2 w-8 h-8 lg:w-12 lg:h-12 bg-yellow-400 rounded-full flex items-center justify-center text-sm lg:text-xl animate-bounce">
               😊
             </div>
-            <div className="absolute top-12 -right-8 w-10 h-10 bg-red-400 rounded-full flex items-center justify-center text-lg animate-pulse">
+            <div className="absolute top-6 -right-4 w-6 h-6 lg:w-10 lg:h-10 bg-red-400 rounded-full flex items-center justify-center text-xs lg:text-lg animate-pulse">
               ❤️
             </div>
-            <div className="absolute -bottom-8 left-8 w-14 h-14 bg-yellow-300 rounded-full flex items-center justify-center text-xl animate-bounce delay-100">
+            <div className="absolute -bottom-4 left-4 w-8 h-8 lg:w-14 lg:h-14 bg-yellow-300 rounded-full flex items-center justify-center text-sm lg:text-xl animate-bounce delay-100">
               😂
             </div>
-            <div className="absolute bottom-20 -left-8 w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold animate-pulse delay-200">
+            <div className="absolute bottom-10 -left-4 w-8 h-8 lg:w-12 lg:h-12 bg-blue-400 rounded-full flex items-center justify-center text-white text-sm lg:text-xl font-bold animate-pulse delay-200">
               +
             </div>
           </div>
